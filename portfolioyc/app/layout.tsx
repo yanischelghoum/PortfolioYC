@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google'; // Typo géométrique et très lisible
+import { Inter } from 'next/font/google';
 import './globals.css';
+import Navbar from './components/Navbar';
+import ColorBends from './components/ColorBends';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Mon Portfolio | Développeur informatique',
-  description: 'Portfolio présentant mon parcours, mes projets scolaires et personnels, ainsi que mon évolution technique.', // Bon pour le SEO 
-  keywords: ['Portfolio', 'Développeur', 'Next.js', 'Epitech', 'Web'],
+  title: 'Mon Portfolio | Développeur',
+  description: 'Portfolio présentant mon parcours, mes projets scolaires et personnels.',
 };
 
 export default function RootLayout({
@@ -16,9 +17,27 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className={`${inter.className} bg-zinc-50 text-zinc-900 antialiased`}>
-        {children}
+    <html lang="fr">
+      <body style={{backgroundColor: '#007ea7'}}>
+        <ColorBends
+          rotation={250}
+          speed={0.15}
+          transparent
+          colors={["#401bd2", "#16dac3", "#ffffff"]}
+          autoRotate={0}
+          scale={0.7}
+          frequency={1}
+          warpStrength={1}
+          mouseInfluence={1}
+          parallax={0.5}
+          noise={0.1}
+        />
+        <div className="content-wrapper" style={{ position: 'relative', zIndex: 1 }}>
+          <Navbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );

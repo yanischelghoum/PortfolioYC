@@ -1,7 +1,7 @@
 export const portfolioData = {
   hero: {
-    catchphrase: "Développeur passionné, créatif et rigoureux.", 
-    photoUrl: "/images/profile.jpg",
+    catchphrase: "Efficient and passionate developer.",
+    photoUrl: "/Photoperso.png", 
     cvUrl: "/cv.pdf",
   },
   contact: {
