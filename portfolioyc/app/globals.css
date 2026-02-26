@@ -13,12 +13,14 @@ html {
 }
 
 @theme {
-  --color-blue: #14213D;
+  --color-linen: #c6ac8f;
   --color-white: #FFFFFF;
   --color-charcoal: #403D39;
-  --color-dark-blue: #007ea7;
-  --color-orange: #FCA311;
-  --color-darkgrey: #161a1d
+  --color-jetblack: #22333b7;
+  --color-stonebrown: #5e503f;
+  --color-darkgrey: #161a1d;
+  --color-tan: #c6ac8f;
+  --color-almond: #ede0d4;
 }
 
 @theme inline {
@@ -129,4 +131,12 @@ html {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+.bottom-blur-sm {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); 
+  
+  border-radius: 0.75rem;   
+  overflow: hidden; 
 }

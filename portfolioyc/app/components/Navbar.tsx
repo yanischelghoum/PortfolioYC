@@ -17,13 +17,13 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-silver transition-all">
+    <nav className="fixed top-0 w-full z-50 bg-transparent transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold tracking-tighter text-charcoal">
-              Yanis's<span className="text-grey"> Resume</span>
+            <Link href="/" className="text-2xl font-bold tracking-tighter text-black">
+              Welcome to Yanis's Resume
             </Link>
           </div>
 
@@ -35,7 +35,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.path}
                   className={`text-sm font-medium transition-colors hover:text-paprika ${
-                    isActive ? 'text-paprika' : 'text-charcoal'
+                    isActive ? 'text-paprika' : 'text-black'
                   }`}
                 >
                   {link.name}
@@ -47,7 +47,7 @@ export default function Navbar() {
               href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-dark-blue text-white text-sm font-medium rounded-full hover:bg-[#000000] transition-colors shadow-md shadow-paprika/20"
+              className="px-5 py-2.5 bg-almond text-black text-sm font-medium rounded-full hover:bg-[#000000] hover:text-white transition-colors shadow-md shadow-paprika/20"
             >
               Download CV
             </a>
