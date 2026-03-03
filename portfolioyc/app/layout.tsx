@@ -18,12 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body style={{backgroundColor: '#c6ac8f'}}>
+      <body style={{backgroundColor: '#778da9'}}>
         <ColorBends
           rotation={320}
           speed={0.2}
           transparent
-          colors={["#5e503f", "#000000", "#ffffff"]}
+          colors={["#fff", "#f5ebe0", "#ffffff"]}
           autoRotate={0}
           scale={0.7}
           frequency={1}
