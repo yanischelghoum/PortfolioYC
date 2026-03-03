@@ -21,6 +21,7 @@ html {
   --color-darkgrey: #161a1d;
   --color-tan: #c6ac8f;
   --color-almond: #ede0d4;
+  --color-parchment: #edede9;
 }
 
 @theme inline {

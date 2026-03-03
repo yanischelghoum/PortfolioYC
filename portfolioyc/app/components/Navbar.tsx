@@ -23,7 +23,7 @@ export default function Navbar() {
           
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-2xl font-bold tracking-tighter text-black">
-              Welcome to Yanis's Resume
+              Yanis's Resume
             </Link>
           </div>
 
@@ -47,7 +47,7 @@ export default function Navbar() {
               href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-almond text-black text-sm font-medium rounded-full hover:bg-[#000000] hover:text-white transition-colors shadow-md shadow-paprika/20"
+              className="px-5 py-2.5 bg-parchment text-black text-sm font-medium rounded-full hover:bg-[#403D39] hover:text-white transition-colors shadow-md shadow-paprika/20"
             >
               Download CV
             </a>
