@@ -30,7 +30,7 @@ export default function Home() {
           className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start"
         >
           <Link
-            href="/projets"
+            href="/projects"
             className="px-6 py-3 bg-parchment text-black font-semibold rounded-lg hover:bg-[#403D39] hover:text-white transition-colors shadow-lg shadow-blue/30"
           >
             Discover my projects

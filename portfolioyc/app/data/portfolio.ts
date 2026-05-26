@@ -1,36 +1,76 @@
 export const portfolioData = {
   hero: {
     catchphrase: "Efficient and passionate developer.",
-    photoUrl: "/Photo3.png", 
-    cvUrl: "/cv.pdf",
+    photoUrl: "/photocv.png",
+    cvUrl: "/Cv%20Yanis%20online.pdf",
   },
   contact: {
-    email: "ton.email@epitech.eu",
-    linkedin: "https://linkedin.com/in/tonprofil",
-    github: "https://github.com/tonprofil",
+    email: "yanis.chelghoum@epitech.eu",
+    linkedin: "https://www.linkedin.com/in/yanis-chelghoum-2536b4276/",
+    github: "https://github.com/yanischelghoum",
   },
-  about: {
-    evolution: "Cette année, j'ai consolidé mes bases en algorithmie et découvert les frameworks modernes. Ce qui m'a permis de...",
-    philosophy: "Coder pour résoudre des problèmes, concevoir pour l'utilisateur.", 
+  Me: {
+    evolution: "This year, I consolidated my foundations in algorithms and discovered modern frameworks. This allowed me to...",
+    philosophy: "Code to solve problems, design for the user.",
   },
   projects: [
     {
       id: 1,
-      title: "Nom du Projet 1",
-      type: "Projet Scolaire",
-      techStack: ["C", "Shell"],
-      description: "Description courte du projet et de ses objectifs.",
-      reflection: "Ce projet m'a appris l'importance de la gestion mémoire et de la rigueur architecturale...", 
-      repoUrl: "https://github.com/...",
-      imageUrl: "/images/projet1.jpg",
+      title: "First resume",
+      type: "School Project",
+      techStack: ["Html", "Css"],
+      description: "Goal: Create an online resume to showcase my background and skills.",
+      reflection: "This project allowed me to master the fundamentals of web development.",
+      siteUrl: "",
+      imagePath: "/firstresume.png",
     },
+    {
+      id: 2,
+      title: "E-todo",
+      type: "School Project",
+      techStack: ["Next.js", "Express", "MySQL"],
+      description: "Goal: Develop a task management application with authentication.",
+      reflection: "This project allowed me to discover modern frameworks and deepen my skills in full-stack development.",
+      siteUrl: "",
+      imagePath: "/etodo.png",
+    },
+    {
+      id: 3,
+      title: "Bracket-bot",
+      type: "Personal Project",
+      techStack: ["Python", "Discord API"],
+      description: "Goal: Create a Discord bot to manage gaming tournaments.",
+      reflection: "This project allowed me to explore the world of bots and APIs, and to apply my programming skills in a fun context.",
+      siteUrl: "",
+      imagePath: "/bracketbot.png",
+    },
+    {
+      id: 4,
+      title: "Tardis",
+      type: "School Project",
+      techStack: ["Python", "Streamlit"],
+      description: "Goal: Develop an interface capable of predicting train delays based on historical data.",
+      reflection: "This project allowed me to apply machine learning techniques and to create a user-friendly interface for data visualization.",
+      siteUrl: "",
+      imagePath: "/tardis.png",
+    },
+      {
+      id: 5,
+      title: "Ecology hackathon",
+      type: "Hackathon",
+      techStack: ["Python", "Data Analysis", "streamlit"],
+      description: "Goal: Analyze environmental data to identify trends and propose solutions for ecological challenges in France.",
+      reflection: "This project allowed me to apply my skills in data analysis and to contribute to an ecological cause.",
+      siteUrl: "",
+      imagePath: "/hackaton.png",
+      }
   ],
   extraCurricular: [
     {
       id: 1,
-      role: "Membre actif",
+      role: "Active Member",
       organization: "Hub Epitech",
-      description: "Participation à l'organisation de hackathons et animation d'ateliers.", 
+      description: "Participated in organizing hackathons and hosting workshops.",
     }
   ]
 };

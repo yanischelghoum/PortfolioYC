@@ -7,7 +7,7 @@ import ColorBends from './components/ColorBends';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Mon Portfolio | Développeur',
+  title: 'Yanis Chelghoum | Développeur',
   description: 'Portfolio présentant mon parcours, mes projets scolaires et personnels.',
 };
 

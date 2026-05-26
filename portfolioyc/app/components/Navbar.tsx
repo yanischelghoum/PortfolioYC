@@ -8,7 +8,6 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Path', path: './path' },
   { name: 'Projects', path: './projects' },
-  { name: 'Me', path: './me' },
   { name: 'Contact', path: './contact' },
 ];
 
@@ -20,7 +19,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-transparent transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
+
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-2xl font-bold tracking-tighter text-black">
               Yanis's Resume
@@ -42,9 +41,10 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            
+
             <a
-              href="/cv.pdf"
+              href="/Cv%20Yanis%20online.pdf"
+              download="CV_Yanis.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-parchment text-black text-sm font-medium rounded-full hover:bg-[#403D39] hover:text-white transition-colors shadow-md shadow-paprika/20"
@@ -89,12 +89,13 @@ export default function Navbar() {
               );
             })}
             <a
-              href="/cv.pdf"
+              href="/Cv%20Yanis%20online.pdf"
+              download="CV_Yanis.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full text-center mt-4 px-5 py-3 bg-paprika text-floral font-medium rounded-lg shadow-md"
             >
-              Télécharger CV
+              Download CV
             </a>
           </div>
         </div>

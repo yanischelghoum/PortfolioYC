@@ -13,6 +13,8 @@ html {
 }
 
 @theme {
+  --animate-fade-in-up: fade-in-up 0.7s ease-out both;
+
   --color-linen: #c6ac8f;
   --color-white: #FFFFFF;
   --color-charcoal: #403D39;
@@ -22,6 +24,17 @@ html {
   --color-tan: #c6ac8f;
   --color-almond: #ede0d4;
   --color-parchment: #edede9;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @theme inline {
