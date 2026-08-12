@@ -1,145 +1,329 @@
 'use client';
 
-import React from 'react';
-import { FileText, CheckSquare, Zap, Clock, Rocket, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  GraduationCap,
+  School,
+  BookOpen,
+  Briefcase,
+  Building2,
+  Code2,
+  ImageIcon,
+} from 'lucide-react';
 
-const pathData = [
+type Entry = {
+  id: string;
+  title: string;
+  organization: string;
+  location: string;
+  period: string;
+  description: string;
+  tags: string[];
+  icon: React.ElementType;
+  /** Drop a file in /public and reference it here, e.g. "/epitech.png". */
+  image: string;
+};
+
+const education: Entry[] = [
   {
-    id: 1,
-    title: 'First Resume',
-    period: 'Step 01',
-    description: 'My very first steps into web development. Building a digital resume from scratch to understand the core building blocks of the web and structure information effectively.',
-    skills: ['HTML5', 'CSS3', 'Responsive Design', 'Web Integration'],
-    icon: FileText,
-    bgColor: 'bg-blue-500/20',
-    textColor: 'text-blue-600',
+    id: 'highschool',
+    title: 'Baccalauréat',
+    organization: 'Lycée Jean-Rostand',
+    location: 'Strabourg, France',
+    period: '2021 — 2023',
+    description:
+      'High school Diploma in Science, specializing in Laboratory Sciences and Biotechnologies.',
+    tags: ['Science', 'Laboratory', 'Biotechnologies'],
+    icon: GraduationCap,
+    image: '/Rostand.png',
   },
   {
-    id: 2,
-    title: 'E-Todo',
-    period: 'Step 02',
-    description: 'A dynamic task management application. This project introduced me to logic, state management, and interacting with the Document Object Model (DOM).',
-    skills: ['JavaScript', 'DOM Manipulation', 'Event Handling', 'Local Storage'],
-    icon: CheckSquare,
-    bgColor: 'bg-green-500/20',
-    textColor: 'text-green-600',
+    id: 'bts',
+    title: 'BTS (Brevet de Technicien Supérieur)',
+    organization: 'Alaji',
+    location: 'Schiltigheim, France',
+    period: '2023 — 2025',
+    description:
+      'Higher Technician Certificate in Opticianry, combining optical technical skills with eyewear expertise.',
+    tags: ['Optics', 'Eyewear', 'Technical Skills', 'Commercial Skills'],
+    icon: GraduationCap,
+    image: '/alaji.webp',
   },
   {
-    id: 3,
-    title: 'Hackathon',
-    period: 'Step 03',
-    description: 'An intense collaborative experience. Working under pressure with a team to conceptualize, design, and deliver a functional prototype within a strict deadline.',
-    skills: ['Team Collaboration', 'Rapid Prototyping', 'Git Workflow', 'Pitching'],
-    icon: Zap,
-    bgColor: 'bg-yellow-500/20',
-    textColor: 'text-yellow-600',
+    id: 'epitech',
+    title: "Bachelor's Degree in Digital Technologies – Software & AI Engineering",
+    organization: 'Epitech',
+    location: 'Strasbourg, France',
+    period: '2025 — present',
+    description:
+      'Specializing in fullstack application development, AI engineering, and scalable cloud-based architectures.',
+    tags: ['Python', 'JavaScript', 'Express', 'Next.js', 'MySQL', 'AI Engineering'],
+    icon: GraduationCap,
+    image: '/epitech.jpg',
   },
-  {
-    id: 4,
-    title: 'Tardis',
-    period: 'Step 04',
-    description: 'Diving deeper into complex architectures and backend logic. A challenging project that pushed my problem-solving skills and code organization to the next level.',
-    skills: ['Backend Logic', 'System Architecture', 'Algorithmic Thinking', 'Database Management'],
-    icon: Clock,
-    bgColor: 'bg-purple-500/20',
-    textColor: 'text-purple-600',
-  },
-  {
-    id: 5,
-    title: 'Final Project',
-    period: 'Step 05 (Coming Soon)',
-    description: 'The culmination of this academic year\'s learning. A comprehensive, large-scale project that will bring together all the skills acquired so far into a polished product.',
-    skills: ['Full-stack Development', 'Deployment', 'Advanced Architecture', 'Project Management'],
-    icon: Rocket,
-    bgColor: 'bg-gray-400/20',
-    textColor: 'text-gray-600',
-  }
 ];
 
-export default function PathPage() {
+const experiences: Entry[] = [
+  {
+    id: 'exp-1',
+    title: 'Job Title',
+    organization: 'Company — to be completed',
+    location: 'City',
+    period: '20XX — 20XX',
+    description:
+      'Describe your main assignment, the team context and the concrete results you delivered.',
+    tags: ['Tech 1', 'Tech 2', 'Method'],
+    icon: Briefcase,
+    image: '',
+  },
+  {
+    id: 'exp-2',
+    title: 'Job Title',
+    organization: 'Company — to be completed',
+    location: 'City',
+    period: '20XX — 20XX',
+    description:
+      'Describe your main assignment, the team context and the concrete results you delivered.',
+    tags: ['Tech 1', 'Tech 2', 'Method'],
+    icon: Building2,
+    image: '',
+  },
+  {
+    id: 'exp-3',
+    title: 'Job Title',
+    organization: 'Company — to be completed',
+    location: 'City',
+    period: '20XX — 20XX',
+    description:
+      'Describe your main assignment, the team context and the concrete results you delivered.',
+    tags: ['Tech 1', 'Tech 2', 'Method'],
+    icon: Code2,
+    image: '',
+  },
+];
+
+/** Reveals its children once they scroll into view. */
+function Reveal({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-5xl mx-auto">
-        
-        {/* Header */}
-        <div className="text-center mb-24 animate-in fade-in zoom-in duration-700">
-          <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-6 text-charcoal">
-            My Learning <span className="font-bold">Path.</span>
-          </h1>
-          <p className="text-lg text-charcoal/80 max-w-2xl mx-auto font-light leading-relaxed">
-            A guided tour of my academic journey, highlighting key projects and the technical skills acquired at every milestone.
-          </p>
-        </div>
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`transition-all duration-700 ease-out ${
+        visible
+          ? 'opacity-100 translate-y-0 blur-0'
+          : 'opacity-0 translate-y-10 blur-[2px]'
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
 
-        {/* Timeline Container */}
-        <div className="relative">
-          {/* Central Vertical Line (Desktop only) */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-white/30 via-white/30 to-transparent transform -translate-x-1/2"></div>
-          {/* Left Vertical Line (Mobile only) */}
-          <div className="md:hidden absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-white/30 via-white/30 to-transparent"></div>
+function EntryCard({ entry, flipped }: { entry: Entry; flipped: boolean }) {
+  const Icon = entry.icon;
 
-          <div className="space-y-12 md:space-y-24">
-            {pathData.map((item, index) => {
-              const isEven = index % 2 === 0;
-              const Icon = item.icon;
+  return (
+    <article
+      className="group relative overflow-hidden rounded-[32px] bg-white/80 backdrop-blur-2xl border border-white
+                 shadow-[0_2px_8px_rgba(0,0,0,0.06),0_16px_48px_rgba(0,0,0,0.10)]
+                 transition-all duration-500 ease-out
+                 hover:-translate-y-1.5 hover:bg-white
+                 hover:shadow-[0_4px_12px_rgba(0,0,0,0.10),0_28px_64px_rgba(0,0,0,0.18)]"
+    >
+      {/* Accent stripe, on the side the content sits */}
+      <div
+        className={`absolute top-0 bottom-0 w-[5px] bg-gradient-to-b from-black to-neutral-600
+                    transition-all duration-500 ease-out group-hover:w-[9px] ${
+                      flipped ? 'right-0' : 'left-0'
+                    }`}
+      />
 
-              return (
-                <div key={item.id} className="relative flex flex-col md:flex-row items-start group">
-                  
-                  {/* Timeline Node Icon */}
-                  <div className="absolute left-8 md:left-1/2 w-14 h-14 rounded-full border-[6px] border-white/30 shadow-sm flex items-center justify-center transform -translate-x-1/2 z-10 bg-white/20 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:shadow-md group-hover:border-white/50">
-                    <div className={`w-full h-full rounded-full flex items-center justify-center ${item.bgColor}`}>
-                      <Icon className={`w-5 h-5 ${item.textColor}`} />
-                    </div>
-                  </div>
+      <div
+        className={`relative flex flex-col md:flex-row gap-7 md:gap-10 p-7 md:p-9 ${
+          flipped ? 'md:flex-row-reverse pr-9 md:pr-14' : 'pl-9 md:pl-14'
+        }`}
+      >
+        {/* ---- Image slot ---- */}
+        <div className="w-full md:w-[230px] lg:w-[260px] flex-shrink-0">
+          <div
+            className="relative aspect-[4/3] md:aspect-square w-full overflow-hidden rounded-[22px]
+                       border border-black/10 bg-white"
+          >
+            {entry.image ? (
+              <Image
+                src={entry.image}
+                alt={entry.organization}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            ) : (
+              <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-4 text-center">
+                <ImageIcon className="h-7 w-7 text-neutral-400" strokeWidth={1.5} />
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+                  Add an image
+                </p>
+              </div>
+            )}
 
-                  {/* Content Card */}
-                  <div className={`w-full md:w-1/2 pl-24 md:pl-0 pt-2 md:pt-0 flex flex-col ${isEven ? 'md:pr-16 md:items-end md:text-right' : 'md:pl-16 md:ml-auto md:items-start md:text-left'}`}>
-                    
-                    {/* Animate-in delay based on index */}
-                    <div 
-                      className="bg-white/30 backdrop-blur-lg p-8 lg:p-10 rounded-3xl shadow-2xl border border-white/40 hover:border-white/60 hover:bg-white/40 transition-all duration-300 w-full relative group-hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-8 fill-mode-both"
-                      style={{ animationDelay: `${index * 150}ms`, animationDuration: '700ms' }}
-                    >
-                      
-                      {/* Desktop Arrow Indicator */}
-                      <div className={`flex items-center gap-3 mb-6 ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                        <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs font-bold bg-white/40 text-charcoal uppercase tracking-widest shadow-sm">
-                          {item.period}
-                        </span>
-                      </div>
-                      
-                      <h3 className="text-3xl font-bold mb-4 text-charcoal tracking-tight group-hover:text-charcoal/90 transition-colors duration-300">
-                        {item.title}
-                      </h3>
-                      
-                      <p className="text-charcoal/80 mb-8 font-light leading-relaxed text-lg">
-                        {item.description}
-                      </p>
-
-                      <div className="pt-6 border-t border-white/40">
-                        <h4 className="text-xs font-bold uppercase tracking-widest text-charcoal/60 mb-4">Skills Acquired</h4>
-                        <div className={`flex flex-wrap gap-2 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
-                          {item.skills.map((skill, skillIdx) => (
-                            <span 
-                              key={skillIdx} 
-                              className="px-3 py-1.5 text-sm font-semibold rounded-xl bg-white/30 text-charcoal border border-white/20 transition-colors hover:border-white/50 hover:bg-white/40"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-
-                </div>
-              );
-            })}
+            {/* Icon mark, tucked into the image corner */}
+            <div
+              className={`absolute bottom-0 flex h-11 w-11 items-center justify-center rounded-[14px]
+                          bg-black shadow-md transition-transform duration-500 ease-out
+                          group-hover:scale-110 ${
+                            flipped
+                              ? 'right-0 translate-x-1 translate-y-1'
+                              : 'left-0 -translate-x-1 translate-y-1'
+                          }`}
+            >
+              <Icon className="h-5 w-5 text-white" strokeWidth={1.75} />
+            </div>
           </div>
         </div>
 
+        {/* ---- Content ---- */}
+        <div className="flex min-w-0 flex-1 flex-col justify-center">
+          {/* Period, set as editorial type rather than a badge */}
+          <div className="mb-3 flex items-center gap-3">
+            <span className="text-[13px] font-bold uppercase tracking-[0.16em] text-black">
+              {entry.period}
+            </span>
+            <span className="h-px flex-1 bg-black/15" />
+          </div>
+
+          <h3 className="mb-2 text-2xl font-bold leading-snug tracking-tight text-black md:text-[27px]">
+            {entry.title}
+          </h3>
+
+          <p className="mb-5 text-[15px] text-black">
+            <span className="font-bold">{entry.organization}</span>
+            <span className="mx-2 text-black/30">·</span>
+            <span className="text-neutral-600">{entry.location}</span>
+          </p>
+
+          <p className="mb-6 text-[15px] leading-relaxed text-black">
+            {entry.description}
+          </p>
+
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {entry.tags.map((tag) => (
+              <span
+                key={tag}
+                className="relative text-[13px] font-semibold text-black
+                           after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
+                           after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function Section({
+  label,
+  title,
+  entries,
+  startDelay,
+  flipStart = false,
+}: {
+  label: string;
+  title: string;
+  entries: Entry[];
+  startDelay: number;
+  flipStart?: boolean;
+}) {
+  return (
+    <section className="mb-20 md:mb-28">
+      <Reveal delay={startDelay}>
+        <div className="mb-8 flex items-center gap-4 px-2">
+          <div>
+            <p className="mb-1 text-[12px] font-bold uppercase tracking-[0.18em] text-black">
+              {label}
+            </p>
+            <h2 className="text-2xl font-bold tracking-tight text-black md:text-3xl">
+              {title}
+            </h2>
+          </div>
+          <div className="mt-4 h-px flex-1 bg-gradient-to-r from-black/25 to-transparent" />
+        </div>
+      </Reveal>
+
+      <div className="space-y-8 md:space-y-10">
+        {entries.map((entry, i) => (
+          <Reveal key={entry.id} delay={startDelay + 120 + i * 130}>
+            <EntryCard entry={entry} flipped={flipStart ? i % 2 === 0 : i % 2 === 1} />
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export default function PathPage() {
+  return (
+    <div className="min-h-screen px-4 pb-28 pt-32 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <Reveal>
+          <div className="mb-16 px-2 md:mb-20">
+            <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.2em] text-black">
+              Since high school
+            </p>
+            <h1 className="mb-6 text-5xl font-light leading-tight tracking-tight text-black md:text-6xl">
+              My <span className="font-bold">Path.</span>
+            </h1>
+            <p className="max-w-2xl text-lg leading-relaxed text-black">
+              From my high school years to today: the education that shaped me
+              and the professional experiences that made me grow.
+            </p>
+          </div>
+        </Reveal>
+
+        <Section
+          label="Education"
+          title="My academic background"
+          entries={education}
+          startDelay={100}
+        />
+
+        <Section
+          label="Experience"
+          title="My professional experience"
+          entries={experiences}
+          startDelay={0}
+          flipStart
+        />
       </div>
     </div>
   );
