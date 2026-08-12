@@ -66,28 +66,28 @@ const education: Entry[] = [
 
 const experiences: Entry[] = [
   {
-    id: 'exp-1',
-    title: 'Job Title',
-    organization: 'Company — to be completed',
-    location: 'City',
-    period: '20XX — 20XX',
+    id: 'Atol',
+    title: 'Apprentice Optician',
+    organization: 'Atol',
+    location: 'Bischheim, France',
+    period: '2023 — 2025',
     description:
-      'Describe your main assignment, the team context and the concrete results you delivered.',
-    tags: ['Tech 1', 'Tech 2', 'Method'],
+      'As an apprentice optician, I used to work in a team to provide customers with personalized eyewear solutions, combining technical expertise with customer service skills.',
+    tags: ['Optics', 'Customer Service', 'Teamwork'],
     icon: Briefcase,
-    image: '',
+    image: '/atolbischheim.jpg',
   },
   {
-    id: 'exp-2',
-    title: 'Job Title',
-    organization: 'Company — to be completed',
-    location: 'City',
-    period: '20XX — 20XX',
+    id: 'Promimark',
+    title: 'Road marking worker',
+    organization: 'Promimark',
+    location: 'Strasbourg, France',
+    period: 'Summer 2025',
     description:
-      'Describe your main assignment, the team context and the concrete results you delivered.',
+      '',
     tags: ['Tech 1', 'Tech 2', 'Method'],
     icon: Building2,
-    image: '',
+    image: '/proximark.jpg',
   },
   {
     id: 'exp-3',
