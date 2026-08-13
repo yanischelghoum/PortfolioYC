@@ -9,6 +9,7 @@ import {
   Briefcase,
   Building2,
   Code2,
+  TrafficCone,
   ImageIcon,
 } from 'lucide-react';
 
@@ -21,7 +22,6 @@ type Entry = {
   description: string;
   tags: string[];
   icon: React.ElementType;
-  /** Drop a file in /public and reference it here, e.g. "/epitech.png". */
   image: string;
 };
 
@@ -72,32 +72,32 @@ const experiences: Entry[] = [
     location: 'Bischheim, France',
     period: '2023 — 2025',
     description:
-      'As an apprentice optician, I used to work in a team to provide customers with personalized eyewear solutions, combining technical expertise with customer service skills.',
+      'Combined practical technical skills in the workshop, such as precision lens mounting and frame adjustments, with high-quality customer service, optical measurements, and sales.',
     tags: ['Optics', 'Customer Service', 'Teamwork'],
     icon: Briefcase,
     image: '/atolbischheim.jpg',
   },
   {
     id: 'Promimark',
-    title: 'Road marking worker',
+    title: 'Road Marking Technician',
     organization: 'Promimark',
-    location: 'Strasbourg, France',
+    location: 'Grand Est, France',
     period: 'Summer 2025',
     description:
-      '',
-    tags: ['Tech 1', 'Tech 2', 'Method'],
-    icon: Building2,
+      'Worked as part of a field team to apply precision road markings, ensuring strict adherence to safety protocols and quality standards in demanding outdoor environments.',
+    tags: ['Field Work', 'Teamwork', 'Safety Protocols'],
+    icon: TrafficCone,
     image: '/proximark.jpg',
   },
   {
-    id: 'exp-3',
-    title: 'Job Title',
-    organization: 'Company — to be completed',
-    location: 'City',
-    period: '20XX — 20XX',
+    id: 'Odygo',
+    title: 'Fullstack Developer',
+    organization: 'Odygo',
+    location: 'Schiltigheim, France',
+    period: 'Summer 2026, June  - September',
     description:
-      'Describe your main assignment, the team context and the concrete results you delivered.',
-    tags: ['Tech 1', 'Tech 2', 'Method'],
+      "Played a pivotal role in engineering the V2 of a driving school's digital platform. Architected the new version from the ground up, handling complex backend logic, seamless API integrations, and dynamic frontend experiences.",
+    tags: ['React', 'Prisma', 'Typescript', 'Node.js', 'API Development', 'Fullstack Development'],
     icon: Code2,
     image: '',
   },
