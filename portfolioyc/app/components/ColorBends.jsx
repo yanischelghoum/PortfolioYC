@@ -98,11 +98,11 @@ void main() {
 `;
 
 export default function ColorBends({
-  className,
-  style,
+  className = undefined,
+  style = undefined,
   rotation = 45,
   speed = 0.2,
-  colors = [],
+  colors = /** @type {string[]} */ ([]),
   transparent = true,
   autoRotate = 0,
   scale = 1,
