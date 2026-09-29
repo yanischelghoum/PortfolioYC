@@ -26,19 +26,19 @@ type Entry = {
 };
 
 const education: Entry[] = [
-  {
-    id: 'highschool',
-    title: 'Baccalauréat',
-    organization: 'Lycée Jean-Rostand',
-    location: 'Strabourg, France',
-    period: '2021 — 2023',
+    {
+    id: 'epitech',
+    title: "Bachelor's Degree in Digital Technologies – Software & AI Engineering",
+    organization: 'Epitech',
+    location: 'Strasbourg, France',
+    period: '2025 — present',
     description:
-      'High school Diploma in Science, specializing in Laboratory Sciences and Biotechnologies.',
-    tags: ['Science', 'Laboratory', 'Biotechnologies'],
+      'Specializing in fullstack application development, AI engineering, and scalable cloud-based architectures.',
+    tags: ['Python', 'JavaScript', 'Express', 'Next.js', 'MySQL', 'AI Engineering'],
     icon: GraduationCap,
-    image: '/Rostand.png',
+    image: '/epitech.jpg',
   },
-  {
+    {
     id: 'bts',
     title: 'BTS (Brevet de Technicien Supérieur)',
     organization: 'Alaji',
@@ -51,20 +51,32 @@ const education: Entry[] = [
     image: '/alaji.webp',
   },
   {
-    id: 'epitech',
-    title: "Bachelor's Degree in Digital Technologies – Software & AI Engineering",
-    organization: 'Epitech',
-    location: 'Strasbourg, France',
-    period: '2025 — present',
+    id: 'highschool',
+    title: 'Baccalauréat',
+    organization: 'Lycée Jean-Rostand',
+    location: 'Strabourg, France',
+    period: '2021 — 2023',
     description:
-      'Specializing in fullstack application development, AI engineering, and scalable cloud-based architectures.',
-    tags: ['Python', 'JavaScript', 'Express', 'Next.js', 'MySQL', 'AI Engineering'],
+      'High school Diploma in Science, specializing in Laboratory Sciences and Biotechnologies.',
+    tags: ['Science', 'Laboratory', 'Biotechnologies'],
     icon: GraduationCap,
-    image: '/epitech.jpg',
+    image: '/Rostand.png',
   },
 ];
 
 const experiences: Entry[] = [
+  {
+      id: 'Odygo',
+    title: 'Fullstack Developer',
+    organization: 'Odygo',
+    location: 'Schiltigheim, France',
+    period: 'Summer 2026, June  - September',
+    description:
+      "Played a pivotal role in engineering the V2 of a driving school's digital platform. Architected the new version from the ground up, handling complex backend logic, seamless API integrations, and dynamic frontend experiences.",
+    tags: ['React', 'Prisma', 'Typescript', 'Node.js', 'API Development', 'Fullstack Development'],
+    icon: Code2,
+    image: '/og.png',
+  },
   {
     id: 'Atol',
     title: 'Apprentice Optician',
@@ -76,30 +88,6 @@ const experiences: Entry[] = [
     tags: ['Optics', 'Customer Service', 'Teamwork'],
     icon: Briefcase,
     image: '/atolbischheim.jpg',
-  },
-  {
-    id: 'Promimark',
-    title: 'Road Marking Technician',
-    organization: 'Promimark',
-    location: 'Grand Est, France',
-    period: 'Summer 2025',
-    description:
-      'Worked as part of a field team to apply precision road markings, ensuring strict adherence to safety protocols and quality standards in demanding outdoor environments.',
-    tags: ['Field Work', 'Teamwork', 'Safety Protocols'],
-    icon: TrafficCone,
-    image: '/proximark.jpg',
-  },
-  {
-    id: 'Odygo',
-    title: 'Fullstack Developer',
-    organization: 'Odygo',
-    location: 'Schiltigheim, France',
-    period: 'Summer 2026, June  - September',
-    description:
-      "Played a pivotal role in engineering the V2 of a driving school's digital platform. Architected the new version from the ground up, handling complex backend logic, seamless API integrations, and dynamic frontend experiences.",
-    tags: ['React', 'Prisma', 'Typescript', 'Node.js', 'API Development', 'Fullstack Development'],
-    icon: Code2,
-    image: '',
   },
 ];
 

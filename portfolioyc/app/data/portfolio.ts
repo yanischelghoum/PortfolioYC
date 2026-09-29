@@ -2,7 +2,7 @@ export const portfolioData = {
   hero: {
     catchphrase: "Efficient and passionate developer.",
     photoUrl: "/photocv.png",
-    cvUrl: "/Cv%20Yanis%20online.pdf",
+    cvUrl: "/CV-Yanis-Chelghoum-EN.pdf",
   },
   contact: {
     email: "yanis.chelghoum@epitech.eu",
@@ -19,7 +19,7 @@ export const portfolioData = {
       title: "First resume",
       type: "School Project",
       techStack: ["Html", "Css"],
-      description: "Goal: Create an online resume to showcase my background and skills.",
+      description: "Create an online resume to showcase my background and skills.",
       reflection: "This project allowed me to master the fundamentals of web development.",
       siteUrl: "",
       imagePath: "/firstresume.png",
@@ -29,7 +29,7 @@ export const portfolioData = {
       title: "E-todo",
       type: "School Project",
       techStack: ["Next.js", "Express", "MySQL"],
-      description: "Goal: Develop a task management application with authentication.",
+      description: "Develop a task management application with authentication.",
       reflection: "This project allowed me to discover modern frameworks and deepen my skills in full-stack development.",
       siteUrl: "",
       imagePath: "/etodo.png",
@@ -39,7 +39,7 @@ export const portfolioData = {
       title: "Bracket-bot",
       type: "Personal Project",
       techStack: ["Python", "Discord API"],
-      description: "Goal: Create a Discord bot to manage gaming tournaments.",
+      description: "Create a Discord bot to manage gaming tournaments.",
       reflection: "This project allowed me to explore the world of bots and APIs, and to apply my programming skills in a fun context.",
       siteUrl: "",
       imagePath: "/bracketbot.png",
@@ -49,21 +49,31 @@ export const portfolioData = {
       title: "Tardis",
       type: "School Project",
       techStack: ["Python", "Streamlit"],
-      description: "Goal: Develop an interface capable of predicting train delays based on historical data.",
+      description: "Develop an interface capable of predicting train delays based on historical data.",
       reflection: "This project allowed me to apply machine learning techniques and to create a user-friendly interface for data visualization.",
       siteUrl: "",
       imagePath: "/tardis.png",
     },
-      {
+    {
       id: 5,
       title: "Ecology hackathon",
       type: "Hackathon",
       techStack: ["Python", "Data Analysis", "streamlit"],
-      description: "Goal: Analyze environmental data to identify trends and propose solutions for ecological challenges in France.",
+      description: "Analyze environmental data to identify trends and propose solutions for ecological challenges in France.",
       reflection: "This project allowed me to apply my skills in data analysis and to contribute to an ecological cause.",
       siteUrl: "",
       imagePath: "/hackaton.png",
-      }
+    },
+    {
+      id: 6,
+      title: "Kaiju : crisis manager",
+      type: "School project",
+      techStack: ["React + vite", "Fastify", "Prisma", "Socket.io"],
+      description: "Crisis-management platform for real-time coordination of emergency resources across districts.",
+      reflection : "I learned real-time communication with Socket.IO and how to enforce permissions and business rules server-side, while shipping a reliable app as a pair in under two weeks.",
+      siteUrl: "",
+      imagePath: "/kaiju map.png",
+    }
   ],
   extraCurricular: [
     {

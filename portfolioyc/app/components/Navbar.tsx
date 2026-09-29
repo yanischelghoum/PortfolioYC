@@ -43,8 +43,8 @@ export default function Navbar() {
             })}
 
             <a
-              href="/Cv%20Yanis%20online.pdf"
-              download="CV_Yanis.pdf"
+              href="/CV-Yanis-Chelghoum-EN.pdf"
+              download="CV-Yanis-Chelghoum-EN.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-parchment text-black text-sm font-medium rounded-full hover:bg-[#403D39] hover:text-white transition-colors shadow-md shadow-paprika/20"
@@ -89,8 +89,8 @@ export default function Navbar() {
               );
             })}
             <a
-              href="/Cv%20Yanis%20online.pdf"
-              download="CV_Yanis.pdf"
+              href="/CV-Yanis-Chelghoum-EN.pdf"
+              download="CV-Yanis-Chelghoum-EN.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full text-center mt-4 px-5 py-3 bg-paprika text-floral font-medium rounded-lg shadow-md"
