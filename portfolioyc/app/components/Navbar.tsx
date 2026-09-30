@@ -13,7 +13,7 @@ const navLinks = [
 
 const cvFiles = [
   { label: 'English', file: '/CV-Yanis-Chelghoum-EN.pdf' },
-  { label: 'Français', file: '/CV-Yanis-Chelghoum-FR.pdf' },
+  { label: 'Français', file: '/CV-Yanis-Chelghoum.pdf' },
 ];
 
 export default function Navbar() {
