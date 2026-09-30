@@ -6,9 +6,9 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'Path', path: './path' },
-  { name: 'Projects', path: './projects' },
-  { name: 'Contact', path: './contact' },
+  { name: 'Path', path: '/path' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
@@ -16,12 +16,16 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-transparent transition-all">
+    <nav
+      className={`fixed top-0 w-full z-50 transition-colors md:bg-transparent md:backdrop-blur-none ${
+        isOpen ? 'bg-parchment' : 'bg-parchment/70 backdrop-blur-md'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 md:h-20">
 
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold tracking-tighter text-black">
+            <Link href="/" className="text-xl md:text-2xl font-bold tracking-tighter text-black">
               Yanis's Resume
             </Link>
           </div>
@@ -33,8 +37,8 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className={`text-sm font-medium transition-colors hover:text-paprika ${
-                    isActive ? 'text-paprika' : 'text-black'
+                  className={`text-sm font-medium transition-colors hover:text-stonebrown ${
+                    isActive ? 'text-stonebrown' : 'text-black'
                   }`}
                 >
                   {link.name}
@@ -56,7 +60,9 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-charcoal hover:text-carbon focus:outline-none"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              className="-mr-2 p-2 rounded-md text-charcoal hover:bg-charcoal/10 focus:outline-none"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
@@ -71,8 +77,8 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-floral border-b border-silver">
-          <div className="px-4 pt-2 pb-6 space-y-2">
+        <div className="md:hidden bg-parchment border-b border-charcoal/10 shadow-lg">
+          <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.path;
               return (
@@ -80,8 +86,8 @@ export default function Navbar() {
                   key={link.name}
                   href={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    isActive ? 'text-paprika bg-silver/20' : 'text-charcoal hover:text-carbon hover:bg-silver/10'
+                  className={`block px-3 py-3 rounded-lg text-base font-medium ${
+                    isActive ? 'text-stonebrown bg-charcoal/10' : 'text-charcoal hover:bg-charcoal/5'
                   }`}
                 >
                   {link.name}
@@ -93,7 +99,8 @@ export default function Navbar() {
               download="CV-Yanis-Chelghoum-EN.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center mt-4 px-5 py-3 bg-paprika text-floral font-medium rounded-lg shadow-md"
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center mt-4 px-5 py-3 bg-charcoal text-white font-medium rounded-full shadow-md"
             >
               Download CV
             </a>

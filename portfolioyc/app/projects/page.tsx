@@ -11,7 +11,7 @@ export default function ProjectsPage() {
           My Projects
         </h1>
         <p className="text-lg text-Black max-w-2xl mx-auto">
-          Discover my work, from school projects to full-stack applications.
+          A selection of the projects I enjoyed building the most, from school assignments to full-stack applications.
         </p>
       </div>
       
